@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import HeaderTitle from '../HeaderTitle/HeaderTitle';
 import Logo from '../Logo/Logo';
 import css from './Header.module.css';
-import SearchBar from '../SearchBar/SearchBar';
+// import SearchBar from '../SearchBar/SearchBar';
 
 export default function Header({
   logoImgPath,
   onUpdate,
   moduleNumber,
   moduleTitle,
-  onSearch,
-  isDisabled,
+  // onSearch,
+  // isDisabled,
 }) {
   return (
     <header className={css.header}>
       <div className={css.searchGroup}>
         <Logo logoImgPath={logoImgPath} />
-        <SearchBar onSearch={onSearch} isDisabled={isDisabled} />
+        {/* <SearchBar onSearch={onSearch} isDisabled={isDisabled} /> */}
       </div>
 
       <HeaderTitle
