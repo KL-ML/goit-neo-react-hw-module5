@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-content: baseline;
+  flex: 1;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 32px;
+  margin: 16px auto;
+  padding: 0 16px;
+}
+@media (min-width: 768px) {
+  .main {
+    max-width: 1140px;
+    margin: 36px auto;
+    padding: 0 36px;
+  }
+}
