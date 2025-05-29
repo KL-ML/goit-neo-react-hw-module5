@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { RiMovieLine } from 'react-icons/ri';
 import css from './MovieList.module.css';
 import PropTypes from 'prop-types';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 export default function MovieList({ movies }) {
   const location = useLocation();
