@@ -3,6 +3,7 @@ import { getMovies } from '../../api/themoviedb-movies-api';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Heading from '../../components/Heading/Heading';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -30,7 +31,7 @@ export default function HomePage() {
   }, []);
   return (
     <>
-      <h2>Trending today</h2>
+      <Heading variant="header1">Trending today</Heading>
       {movies && movies.length > 1 && !error && <MovieList movies={movies} />}
       {loading && <Loader loading={loading} />}
       {error && <ErrorMessage />}
