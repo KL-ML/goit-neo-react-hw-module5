@@ -10,7 +10,8 @@ export default function NotFoundPage() {
         <p className={css.textNotFound}>Ow No! The page is not found...</p>
         <img
           className={css.notFoundImg}
-          src="./src/images/animation-337.gif"
+          // src="./src/images/animation-337.gif"
+          src='https://i.ibb.co/dJfRPr3k/animation-337.gif'
           width="400"
           height="400"
         />
