@@ -4,6 +4,7 @@ import { getMovies } from '../../api/themoviedb-movies-api';
 import css from './MovieReviews.module.css';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Heading from '../Heading/Heading';
 
 export default function MovieReviews() {
   const [review, setReview] = useState([]);
@@ -38,9 +39,12 @@ export default function MovieReviews() {
         {review.length > 0 &&
           !error &&
           review.map(({ author, content, id }) => (
-            <li key={id}>
-              <h3>{author}</h3>
-              <p>{content}</p>
+            <li className={css.reviewItem} key={id}>
+              <Heading tag="p" variant="paragraf">
+                {author}
+                <br />
+                <span>{content}</span>
+              </Heading>
             </li>
           ))}
         {review.length === 0 && !loading && (
