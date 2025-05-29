@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import HeaderTitle from '../HeaderTitle/HeaderTitle';
 import Logo from '../Logo/Logo';
 import css from './Header.module.css';
+import Navigation from '../Navigation/Navigation';
 // import SearchBar from '../SearchBar/SearchBar';
 
 export default function Header({
@@ -19,7 +20,7 @@ export default function Header({
         <Logo logoImgPath={logoImgPath} />
         {/* <SearchBar onSearch={onSearch} isDisabled={isDisabled} /> */}
       </div>
-
+      <Navigation />
       <HeaderTitle
         moduleNumber={moduleNumber}
         moduleTitle={moduleTitle}
