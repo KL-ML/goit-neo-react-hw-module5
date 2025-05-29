@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { getMovies } from '../../api/themoviedb-movies-api';
-import toast, { Toaster } from 'react-hot-toast';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
@@ -32,7 +31,7 @@ export default function MoviesPage() {
         setError(false);
         const data = await getMovies(params, endPoint);
         if (data.total_results === 0) {
-          toast.error('There are no movies on your query!');
+          setError(true);
           searchParams.delete('query');
           setSearchParams(searchParams);
           setMovies([]);
@@ -52,9 +51,9 @@ export default function MoviesPage() {
   return (
     <>
       <SearchBar onSubmit={handleFormSubmit} searchQueryUrl={searchQueryUrl} />
-      {movies && movies.length > 1 && !error && <MovieList movies={movies} />}
+      {error && <ErrorMessage message="There are no movies on your query!" />}
+      {movies && movies.length > 0 && !error && <MovieList movies={movies} />}
       {loading && <Loader loading={loading} />}
-      {error && <ErrorMessage />}
     </>
   );
 }
