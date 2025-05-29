@@ -10,7 +10,7 @@ export default function Navigation() {
   return (
     <>
       <nav className={css.nav}>
-        <ul>
+        <ul className={css.navList}>
           <li>
             <NavLink to="/" className={buildLinkClass}>
               Home
