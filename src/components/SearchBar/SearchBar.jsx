@@ -6,15 +6,14 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
 import PropTypes from 'prop-types';
 
-export default function SearchBar({ onSearch, isDisabled }) {
+export default function SearchBar({ onSubmit, isDisabled }) {
   const nameFieldId = useId();
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = values => {
     if (values.search === '') {
       toast.error('Please enter search term!');
       return;
     }
-    onSearch(values.search);
-    actions.resetForm();
+    onSubmit(values.search.trim().toLowerCase());
   };
 
   return (
