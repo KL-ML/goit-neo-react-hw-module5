@@ -9,8 +9,8 @@
     background-color: var(--dark-secondary-color);
   }
 }
-.searchGroup {
+.navGroup {
   display: flex;
-  justify-content: flex-start;
   gap: 36px;
+  align-items: center;
 }
