@@ -43,7 +43,8 @@ export default function MovieReviews() {
               <p>{content}</p>
             </li>
           ))}
-        {review.length === 0 && !loading && ( <ErrorMessage message="Sorry, we don't have any review for this movie" />
+        {review.length === 0 && !loading && (
+          <ErrorMessage message="Sorry, we don't have any review for this movie" />
         )}
       </ul>
       {loading && <Loader loading={loading} />}
