@@ -6,6 +6,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  max-width: 467px;
   width: 100%;
   gap: 32px;
   margin: 16px auto;
@@ -13,7 +14,7 @@
 }
 @media (min-width: 768px) {
   .main {
-    max-width: 1140px;
+    max-width: 654px;
     margin: 36px auto;
     padding: 0 36px;
   }
