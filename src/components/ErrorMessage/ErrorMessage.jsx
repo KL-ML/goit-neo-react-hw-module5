@@ -1,11 +1,11 @@
 import css from './ErrorMessage.module.css';
-export default function ErrorMessage() {
+export default function ErrorMessage({
+  message = 'Whoops, something went wrong! Please try reloading this page!',
+}) {
   return (
     <>
-      <div className={css.error}>
-        <p>Whoops, something went wrong!</p>
-        <p>Please try reloading this page!</p>
-      </div>
+      <p className={css.error}>{message}
+      </p>
     </>
   );
 }
