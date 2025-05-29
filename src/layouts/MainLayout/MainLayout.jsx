@@ -1,9 +1,4 @@
-import { lazy, Suspense, useState } from 'react';
-// const Backdrop = lazy(() => import('../../components/Backdrop/Backdrop'));
-// const Footer = lazy(() => import('../../components/Footer/Footer'));
-// const Header = lazy(() => import('../../components/Header/Header'));
-// const Main = lazy(() => import('../../components/Main/Main'));
-// const Sidebar = lazy(() => import('../../components/Sidebar/Sidebar'));
+import { useState } from 'react';
 
 import Backdrop from '../../components/Backdrop/Backdrop';
 import Footer from '../../components/Footer/Footer';
@@ -29,30 +24,28 @@ export default function MainLayout() {
   }
   return (
     <>
-      {/* <Suspense fallback={<div>Loading MainLayout...</div>}> */}
-        <Section>
-          <Header
-            logoImgPath={logoImgPath}
+      <Section>
+        <Header
+          logoImgPath={logoImgPath}
+          moduleNumber={homeWork.number}
+          moduleTitle={homeWork.title}
+          onUpdate={updateMobileMenuStatus}
+        />
+        <Main>
+          <Outlet />
+        </Main>
+        <Footer />
+        <Backdrop mobileMenu={mobileMenuStatus}>
+          <Sidebar
+            menuItems={menuItems}
+            variant="mobileMenu"
+            mobileMenu={mobileMenuStatus}
             moduleNumber={homeWork.number}
             moduleTitle={homeWork.title}
             onUpdate={updateMobileMenuStatus}
           />
-          <Main>
-            <Outlet />
-          </Main>
-          <Footer />
-          <Backdrop mobileMenu={mobileMenuStatus}>
-            <Sidebar
-              menuItems={menuItems}
-              variant="mobileMenu"
-              mobileMenu={mobileMenuStatus}
-              moduleNumber={homeWork.number}
-              moduleTitle={homeWork.title}
-              onUpdate={updateMobileMenuStatus}
-            />
-          </Backdrop>
-        </Section>
-      {/* </Suspense> */}
+        </Backdrop>
+      </Section>
     </>
   );
 }
