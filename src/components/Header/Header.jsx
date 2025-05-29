@@ -4,7 +4,6 @@ import HeaderTitle from '../HeaderTitle/HeaderTitle';
 import Logo from '../Logo/Logo';
 import css from './Header.module.css';
 import Navigation from '../Navigation/Navigation';
-// import SearchBar from '../SearchBar/SearchBar';
 
 export default function Header({
   logoImgPath,
@@ -16,11 +15,11 @@ export default function Header({
 }) {
   return (
     <header className={css.header}>
-      <div className={css.searchGroup}>
+      <div className={css.navGroup}>
         <Logo logoImgPath={logoImgPath} />
-        {/* <SearchBar onSearch={onSearch} isDisabled={isDisabled} /> */}
+        <Navigation />
       </div>
-      <Navigation />
+
       <HeaderTitle
         moduleNumber={moduleNumber}
         moduleTitle={moduleTitle}
