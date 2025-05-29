@@ -4,8 +4,7 @@ export default function ErrorMessage({
 }) {
   return (
     <>
-      <p className={css.error}>{message}
-      </p>
+      <p className={css.error}>{message}</p>
     </>
   );
 }
