@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './Logo.module.css'
+import css from './Logo.module.css';
 export default function Logo({ logoImgPath }) {
   return (
     <>
