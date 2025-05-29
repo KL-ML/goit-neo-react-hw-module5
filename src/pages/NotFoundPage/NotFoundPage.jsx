@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import css from './NotFoundPage.module.css'
+import css from './NotFoundPage.module.css';
 import { Link, Outlet } from 'react-router-dom';
 
 export default function NotFoundPage() {
@@ -14,11 +14,10 @@ export default function NotFoundPage() {
           width="400"
           height="400"
         />
-        <Link to='/' className={css.goBack}>Go back</Link>
+        <Link to="/" className={css.goBack}>
+          Go back
+        </Link>
       </div>
-      <Suspense fallback={<div>Loading NotFoundPage...</div>}>
-        <Outlet />
-      </Suspense>
     </>
   );
 }
