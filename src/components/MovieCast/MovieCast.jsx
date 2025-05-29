@@ -45,7 +45,7 @@ export default function MovieCast() {
                     src={
                       profile_path
                         ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                        : `/src/images/cc935c5234d7b0f98ad28514ac10a205.png`
+                        : `https://i.ibb.co/VcymNTX6/cc935c5234d7b0f98ad28514ac10a205.png`
                     }
                     alt="actor"
                     loading="lazy"
