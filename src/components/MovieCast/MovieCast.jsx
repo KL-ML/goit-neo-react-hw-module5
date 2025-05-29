@@ -4,6 +4,7 @@ import { getMovies } from '../../api/themoviedb-movies-api';
 import css from './MovieCast.module.css';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Heading from '../Heading/Heading';
 
 export default function MovieCast() {
   const [cast, setCast] = useState([]);
@@ -39,20 +40,24 @@ export default function MovieCast() {
           cast.map(({ id, name, character, profile_path }) => {
             return (
               <li className={css.castItem} key={id}>
-                <img
-                  src={
-                    profile_path
-                      ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                      : `http://www.suryalaya.org/images/no_image.jpg`
-                  }
-                  alt="actor"
-                  loading="lazy"
-                  width={180}
-                  height={270}
-                />
+                <div className={css.imgWrap}>
+                  <img
+                    src={
+                      profile_path
+                        ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                        : `/src/images/cc935c5234d7b0f98ad28514ac10a205.png`
+                    }
+                    alt="actor"
+                    loading="lazy"
+                    width={180}
+                  />
+                </div>
+
                 <div className={css.castInfo}>
-                  <h3>{name}</h3>
-                  <p>Character: {character}</p>
+                  <Heading tag="p" variant="smallParagraf">
+                    {name}
+                    <span> Character: {character}</span>
+                  </Heading>
                 </div>
               </li>
             );
