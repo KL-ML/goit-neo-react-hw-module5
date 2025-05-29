@@ -11,6 +11,9 @@ import css from './MovieDetailsPage.module.css';
 import clsx from 'clsx';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Container from '../../components/Container/Container';
+import Heading from '../../components/Heading/Heading';
+import Button from '../../components/Button/Button';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -49,24 +52,62 @@ export default function MovieDetailsPage() {
       <Link to={goBackLink.current}>Go back</Link>
 
       {movie && !error && !loading && (
-        <>
-          <div>
-            <h1>{movie.title}</h1>
-            <ul>
+        <Container variant="outerContainer">
+          <Container variant="innerContainer">
+            <Heading tag="h2" variant="header2">
+              {movie.title}{' '}
+              <span>
+                <br />
+                {movie.overview}
+              </span>
+            </Heading>
+            <div className={css.details}>
+              <div className={css.imgThumb}>
+                <img
+                  className={css.img}
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                      : `http://www.suryalaya.org/images/no_image.jpg`
+                  }
+                  width={240}
+                  loading="lazy"
+                  alt="poster"
+                />
+              </div>
+              <div className={css.descriptionWrap}>
+                <Heading tag="p" variant="paragraf">
+                  Release Date:
+                  <span>
+                    {' '}
+                    {new Date(movie.release_date).toLocaleDateString()}
+                  </span>
+                </Heading>
+                <Heading tag="p" variant="paragraf">
+                  Rating:
+                  <span> {movie.vote_average} %</span>
+                </Heading>
+                <Heading tag="p" variant="paragraf">
+                  Runtime:
+                  <span> {movie.runtime} minutes</span>
+                </Heading>
+              </div>
+            </div>
+            <ul className={css.buttonsList}>
               <li>
                 <NavLink to="cast" className={buildLinkClass}>
-                  Read about our cast
+                  <Button type="button" text="Cast" variant="outlined" />
                 </NavLink>
               </li>
               <li>
                 <NavLink to="reviews" className={buildLinkClass}>
-                  Get to know the reviews
+                  <Button type="button" text="Reviews" variant="outlined" />
                 </NavLink>
               </li>
             </ul>
             <Outlet />
-          </div>
-        </>
+          </Container>
+        </Container>
       )}
       {loading && <Loader loading={loading} />}
       {error && <ErrorMessage />}
