@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovies } from '../../api/themoviedb-movies-api';
 import css from './MovieCast.module.css';
-import toast from 'react-hot-toast';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
@@ -20,9 +19,6 @@ export default function MovieCast() {
         setLoading(true);
         setError(false);
         const data = await getMovies(params, endPoint);
-        if (data.total_results === 0) {
-          toast.error("Sorry, we don't have any credits for this movie");
-        }
         setCast(data.cast);
       } catch (error) {
         setError(true);
@@ -61,6 +57,9 @@ export default function MovieCast() {
               </li>
             );
           })}
+        {cast.length === 0 && !loading && (
+          <ErrorMessage message="Sorry, we don't have any credits for this movie" />
+        )}
         {loading && <Loader loading={loading} />}
         {error && <ErrorMessage />}
       </ul>
